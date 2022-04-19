@@ -5,8 +5,8 @@ import (
 	"flag"
 	"fmt"
 	grpctransport "github.com/go-kit/kit/transport/grpc"
-	service "github.com/longjoy/micro-go-book/ch7-rpc/go-kit/string-service"
-	"github.com/longjoy/micro-go-book/ch7-rpc/pb"
+	service "github.com/pp553933054/micro-go-book/ch7-rpc/go-kit/string-service"
+	"github.com/pp553933054/micro-go-book/ch7-rpc/pb"
 	"google.golang.org/grpc"
 	"time"
 )

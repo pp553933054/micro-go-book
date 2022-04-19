@@ -3,11 +3,11 @@ package conf
 import (
 	"fmt"
 	"github.com/go-kit/kit/log"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pkg/bootstrap"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pkg/discover"
 	"github.com/openzipkin/zipkin-go"
 	zipkinhttp "github.com/openzipkin/zipkin-go/reporter/http"
 	_ "github.com/openzipkin/zipkin-go/reporter/recorder"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pkg/bootstrap"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pkg/discover"
 	"github.com/spf13/viper"
 	"net/http"
 	"os"

@@ -2,7 +2,7 @@ package plugins
 
 import (
 	"github.com/go-kit/kit/log"
-	"github.com/longjoy/micro-go-book/ch6-discovery/string-service/service"
+	"github.com/pp553933054/micro-go-book/ch6-discovery/string-service/service"
 	"time"
 )
 
@@ -63,5 +63,3 @@ func (mw loggingMiddleware) HealthCheck() (result bool) {
 	result = mw.Service.HealthCheck()
 	return
 }
-
-

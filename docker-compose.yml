@@ -1,0 +1,160 @@
+version: '3.7'
+
+services:
+
+#  consul-server:
+#      image: consul:1.9.13
+#      container_name: consul-server
+#      restart: always
+#      volumes:
+#        - ./mydata/server.json:/consul/config/server.json
+#  #      - ./mydata/data:/consul/data
+#      networks:
+#        - consul
+#      ports:
+#        - "8500:8500"
+#        - "8600:8600/tcp"
+#        - "8600:8600/udp"
+#      command: "agent"
+#
+#    consul-client:
+#      image: consul:1.9.13
+#      container_name: consul-client
+#      restart: always
+#      volumes:
+#        - ./mydata/client.json:/consul/config/client.json
+#  #      - ./mydata/data:/consul/data
+#      networks:
+#        - consul
+#      command: "agent"
+
+#    mysql:
+#      image: mysql:5.7
+#      container_name: mysql1
+#      command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+#      restart: always
+#      environment:
+#        MYSQL_ROOT_PASSWORD: root #设置root帐号密码
+#      ports:
+#        - 23306:3306
+#      volumes:
+#        - ./mydata/mysql/data/db:/var/lib/mysql #数据文件挂载
+#        - ./mydata/mysql/data/conf:/etc/mysql/conf.d #配置文件挂载
+#        - ./mydata/mysql/log:/var/log/mysql #日志文件挂载
+#    redis:
+#      image: redis:5
+#      container_name: redis1
+#      command: redis-server --appendonly yes
+#      volumes:
+#        - ./mydata/redis/data:/data #数据文件挂载
+#      ports:
+#        - 6379:6379
+
+  consul-server1:
+    image: hashicorp/consul:1.11.2
+    container_name: consul-server1
+    restart: always
+    volumes:
+      - ./mydata/server1.json:/consul/config/server1.json:ro
+      - ./mydata/certs/:/consul/config/certs/:ro
+    networks:
+      - consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    command: "agent -bootstrap-expect=3"
+
+  consul-server2:
+    image: hashicorp/consul:1.11.2
+    container_name: consul-server2
+    restart: always
+    volumes:
+      - ./mydata/server2.json:/consul/config/server2.json:ro
+      - ./mydata/certs/:/consul/config/certs/:ro
+    networks:
+      - consul
+    command: "agent -bootstrap-expect=3"
+
+  consul-server3:
+    image: hashicorp/consul:1.11.2
+    container_name: consul-server3
+    restart: always
+    volumes:
+      - ./mydata/server3.json:/consul/config/server3.json:ro
+      - ./mydata/certs/:/consul/config/certs/:ro
+    networks:
+      - consul
+    command: "agent -bootstrap-expect=3"
+
+  consul-client:
+    image: hashicorp/consul:1.11.2
+    container_name: consul-client
+    restart: always
+    volumes:
+      - ./mydata/client.json:/consul/config/client.json:ro
+      - ./mydata/certs/:/consul/config/certs/:ro
+    networks:
+      - consul
+    command: "agent"
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - TZ=Asia/Shanghai
+
+
+  zoo1:
+    image: zookeeper
+    restart: always
+    hostname: zoo1
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      JVMFLAGS: "-Djute.maxbuffer=10240000"
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+
+  zoo2:
+    image: zookeeper
+    restart: always
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 2
+      JVMFLAGS: "-Djute.maxbuffer=10240000"
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+
+  zoo3:
+    image: zookeeper
+    restart: always
+    hostname: zoo3
+    ports:
+      - 2183:2181
+    environment:
+      ZOO_MY_ID: 3
+      JVMFLAGS: "-Djute.maxbuffer=10240000"
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+
+#  consul:
+#    image: progrium/consul:latest
+#    ports:
+#      - 8400:8400
+#      - 8500:8500
+#      - 8600:53/udp
+#    hostname: consulserver
+#    command: -server -bootstrap -ui-dir /ui
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+networks:
+  consul:
+    driver: bridge
+

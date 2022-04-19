@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	pb "github.com/longjoy/micro-go-book/ch7-rpc/stream-pb"
-	"github.com/longjoy/micro-go-book/ch7-rpc/stream/string-service"
+	pb "github.com/pp553933054/micro-go-book/ch7-rpc/stream-pb"
+	"github.com/pp553933054/micro-go-book/ch7-rpc/stream/string-service"
 	"github.com/prometheus/common/log"
 	"google.golang.org/grpc"
 	"net"

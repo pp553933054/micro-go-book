@@ -6,12 +6,12 @@ import (
 	"fmt"
 	kitprometheus "github.com/go-kit/kit/metrics/prometheus"
 	kitzipkin "github.com/go-kit/kit/tracing/zipkin"
-	register "github.com/longjoy/micro-go-book/ch13-seckill/pkg/discover"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/endpoint"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/plugins"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/service"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/transport"
-	"github.com/longjoy/micro-go-book/ch13-seckill/user-service/config"
+	register "github.com/pp553933054/micro-go-book/ch13-seckill/pkg/discover"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/endpoint"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/plugins"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/service"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/transport"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/user-service/config"
 	stdprometheus "github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/time/rate"
 	"log"
@@ -25,7 +25,7 @@ import (
 //初始化Http服务
 func InitServer(host string, servicePort string) {
 
-	log.Printf("port is ", servicePort)
+	log.Printf("port is %v", servicePort)
 
 	flag.Parse()
 

@@ -34,6 +34,9 @@ func NewConsumer(amqpURI, exchange, exchangeType, queue, key, ctag string) error
 	var err error
 
 	log.Printf("dialing %s", amqpURI)
+
+	//c.conn, err = amqp.DialConfig(amqpURI, amqp.Config{Vhost: "/config-server"})
+
 	c.conn, err = amqp.Dial(amqpURI)
 	if err != nil {
 		return fmt.Errorf("Dial: %s", err)

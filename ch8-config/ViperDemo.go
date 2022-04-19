@@ -29,7 +29,7 @@ func initDefault() {
 	//添加读取的配置文件路径
 	viper.AddConfigPath("./ch8-config/config/")
 	//windows环境下为%GOPATH，linux环境下为$GOPATH
-	viper.AddConfigPath("$GOPATH/src/")
+	viper.AddConfigPath("%GOPATH/src/")
 	//设置配置文件类型
 	viper.SetConfigType("yaml")
 }

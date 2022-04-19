@@ -2,7 +2,7 @@ package loadbalance
 
 import (
 	"errors"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pkg/common"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pkg/common"
 	"math/rand"
 )
 

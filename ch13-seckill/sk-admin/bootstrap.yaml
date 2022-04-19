@@ -8,13 +8,20 @@ rpc:
   port: 9132
 
 discover:
-  Host: 114.67.98.210
+  Host: localhost
   port: 8500
   instanceId: sk-admin-localhost
   serviceName: sk-admin
-
+  Weight: 2
 
 config:
   id: config-service
-  profile: "dev"
-  label: "master"
+  profile: dev
+  label: master
+
+mysql:
+  Host: localhost
+  Port: 3306
+  User: root
+  Pwd: szht
+  Db: seckill

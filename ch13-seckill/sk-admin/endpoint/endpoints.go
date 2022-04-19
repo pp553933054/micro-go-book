@@ -5,8 +5,8 @@ import (
 	"errors"
 	"github.com/go-kit/kit/endpoint"
 	"github.com/gohouse/gorose/v2"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/model"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/service"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/model"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/service"
 	"log"
 )
 

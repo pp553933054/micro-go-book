@@ -3,7 +3,7 @@ package setup
 import (
 	"encoding/json"
 	"fmt"
-	conf "github.com/longjoy/micro-go-book/ch13-seckill/pkg/config"
+	conf "github.com/pp553933054/micro-go-book/ch13-seckill/pkg/config"
 	"github.com/samuel/go-zookeeper/zk"
 	"log"
 	"time"
@@ -11,7 +11,7 @@ import (
 
 //初始化Etcd
 func InitZk() {
-	var hosts = []string{"39.98.179.73:2181"}
+	var hosts = []string{"localhost:2181"}
 	//option := zk.WithEventCallback(waitSecProductEvent)
 	conn, _, err := zk.Connect(hosts, time.Second*5)
 	if err != nil {

@@ -1,8 +1,6 @@
-
 http:
-  host: 114.67.98.210
+  host: localhost
   port: 9019
-
 
 rpc:
   host: localhost
@@ -10,7 +8,7 @@ rpc:
 
 
 discover:
-  Host: 114.67.98.210
+  Host: localhost
   port: 8500
   instanceId: oauth-service-localhost
   serviceName: oauth
@@ -18,5 +16,12 @@ discover:
 
 config:
   id: config-service
-  profile: "dev"
-  label: "master"
+  profile: dev
+  label: master
+
+mysql:
+  Host: localhost
+  Port: 3306
+  User: root
+  Pwd: szht
+  Db: seckill

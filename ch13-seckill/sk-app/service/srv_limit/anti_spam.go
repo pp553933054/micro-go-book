@@ -2,9 +2,10 @@ package srv_limit
 
 import (
 	"fmt"
-	conf "github.com/longjoy/micro-go-book/ch13-seckill/pkg/config"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-app/model"
+	conf "github.com/pp553933054/micro-go-book/ch13-seckill/pkg/config"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-app/model"
 	"log"
+	"strconv"
 	"sync"
 )
 
@@ -48,7 +49,8 @@ func AntiSpam(req *model.SecRequest) (err error) {
 				secLimit: &SecLimit{},
 				minLimit: &MinLimit{},
 			}
-			SecLimitMgrVars.UserLimitMap[req.ClientAddr] = limit
+			index, _ := strconv.Atoi(req.ClientAddr)
+			SecLimitMgrVars.UserLimitMap[index] = limit
 		}
 
 		secIdCount = limit.secLimit.Count(req.AccessTime) //获取该秒内该用户访问次数

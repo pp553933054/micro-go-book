@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gohouse/gorose/v2"
-	conf "github.com/longjoy/micro-go-book/ch13-seckill/pkg/config"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/model"
+	conf "github.com/pp553933054/micro-go-book/ch13-seckill/pkg/config"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/model"
 	"github.com/samuel/go-zookeeper/zk"
 	"github.com/unknwon/com"
 	"log"
@@ -26,7 +26,6 @@ type ActivityServiceImpl struct {
 func (p ActivityServiceImpl) GetActivityList() ([]gorose.Data, error) {
 	activityEntity := model.NewActivityModel()
 	activityList, err := activityEntity.GetActivityList()
-	log.Printf("ActivityEntity.GetActivityList, err : %v")
 	if err != nil {
 		log.Printf("ActivityEntity.GetActivityList, err : %v", err)
 		return nil, err

@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 	"github.com/opentracing/opentracing-go"
 	zipkin "github.com/openzipkin-contrib/zipkin-go-opentracing"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pb"
 	"log"
 	"testing"
 )
@@ -27,7 +27,7 @@ func genTracerAct(tracer opentracing.Tracer) opentracing.Tracer {
 	if tracer != nil {
 		return tracer
 	}
-	zipkinUrl := "http://114.67.98.210:9411/api/v2/spans"
+	zipkinUrl := "http://localhost:9411/api/v2/spans"
 	zipkinRecorder := "localhost:12344"
 	collector, err := zipkin.NewHTTPCollector(zipkinUrl)
 	if err != nil {

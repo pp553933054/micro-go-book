@@ -10,9 +10,9 @@ import (
 	kithttp "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	endpts "github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/endpoint"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-admin/model"
 	gozipkin "github.com/openzipkin/zipkin-go"
+	endpts "github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/endpoint"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/sk-admin/model"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
 	"os"
@@ -43,7 +43,7 @@ func MakeHttpHandler(ctx context.Context, endpoints endpts.SkAdminEndpoints, zip
 	))
 
 	r.Methods("POST").Path("/product/create").Handler(kithttp.NewServer(
-		endpoints.GetProductEndpoint,
+		endpoints.CreateProductEndpoint,
 		decodeCreateProductCheckRequest,
 		encodeResponse,
 		options...,

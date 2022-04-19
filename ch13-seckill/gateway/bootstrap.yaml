@@ -1,23 +1,24 @@
 
 http:
-  host: 114.67.98.210
+  host: localhost
   port: 9090
 
 
 discover:
-  Host: 114.67.98.210
+  Host: localhost
   port: 8500
   instanceId: gateway-service-localhost
   serviceName: gateway
+  Weight: 1
 
 
 config:
   id: config-service
-  profile: "dev"
-  label: "master"
+  profile: dev
+  label: master
 
 trace:
-  host: 114.67.98.210
+  host: localhost
   port: 9411
   url: /api/v2/spans
 

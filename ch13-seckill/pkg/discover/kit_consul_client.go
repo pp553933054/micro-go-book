@@ -5,7 +5,7 @@ import (
 	"github.com/go-kit/kit/sd/consul"
 	"github.com/hashicorp/consul/api"
 	"github.com/hashicorp/consul/api/watch"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pkg/common"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pkg/common"
 	"log"
 	"strconv"
 )
@@ -57,12 +57,12 @@ func (consulClient *DiscoveryClientInstance) Register(instanceId, svcHost, healt
 
 	if err != nil {
 		if logger != nil {
-			logger.Println("Register Service Error!")
+			logger.Println(serviceRegistration.Name + "Register Service Error!" + err.Error())
 		}
 		return false
 	}
 	if logger != nil {
-		logger.Println("Register Service Success!")
+		logger.Println(serviceRegistration.Name + "Register Service Success!")
 	}
 	return true
 }

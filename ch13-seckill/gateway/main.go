@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/go-kit/kit/log"
-	_ "github.com/longjoy/micro-go-book/ch13-seckill/gateway/config"
-	"github.com/longjoy/micro-go-book/ch13-seckill/gateway/route"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pkg/bootstrap"
-	register "github.com/longjoy/micro-go-book/ch13-seckill/pkg/discover"
 	"github.com/openzipkin/zipkin-go"
 	zipkinhttpsvr "github.com/openzipkin/zipkin-go/middleware/http"
 	zipkinhttp "github.com/openzipkin/zipkin-go/reporter/http"
+	_ "github.com/pp553933054/micro-go-book/ch13-seckill/gateway/config"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/gateway/route"
+	"github.com/pp553933054/micro-go-book/ch13-seckill/pkg/bootstrap"
+	register "github.com/pp553933054/micro-go-book/ch13-seckill/pkg/discover"
 	"net"
 	"net/http"
 	"os"
@@ -23,7 +23,7 @@ func main() {
 
 	// 创建环境变量
 	var (
-		zipkinURL = flag.String("zipkin.url", "http://114.67.98.210:9411/api/v2/spans", "Zipkin server url")
+		zipkinURL = flag.String("zipkin.url", "http://localhost:9411/api/v2/spans", "Zipkin server url")
 	)
 	flag.Parse()
 

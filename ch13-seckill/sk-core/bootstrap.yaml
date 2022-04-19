@@ -7,13 +7,14 @@ rpc:
   port: 9132
 
 discover:
-  Host: 114.67.98.210
+  Host: localhost
   port: 8500
   instanceId: sk-core-localhost
   serviceName: sk-core # 要缓存sk-app
+  Weight: 4
 
 
 config:
   id: config-service
-  profile: "dev"
-  label: "master"
+  profile: dev
+  label: master

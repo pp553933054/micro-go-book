@@ -8,8 +8,8 @@ import (
 	"github.com/go-kit/kit/tracing/zipkin"
 	kithttp "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
-	"github.com/longjoy/micro-go-book/ch12-trace/zipkin-kit/string-service/endpoint"
 	gozipkin "github.com/openzipkin/zipkin-go"
+	"github.com/pp553933054/micro-go-book/ch12-trace/zipkin-kit/string-service/endpoint"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
 )

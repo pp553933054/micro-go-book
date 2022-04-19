@@ -49,7 +49,7 @@ func initDefault() {
 	viper.SetDefault(kConfigLabel, "master")
 	viper.SetDefault(kConfigProfile, "dev")
 	viper.SetDefault(kConfigType, "yaml")
-	viper.SetDefault(kAmqpURI, "amqp://admin:admin@114.67.98.210:5672")
+	viper.SetDefault(kAmqpURI, "amqp://dev-manage:devmanage@localhost:5672")
 
 }
 func handleRefreshEvent(body []byte, consumerTag string) {
